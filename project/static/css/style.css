@@ -1,0 +1,46 @@
+.avatar {
+    border-radius: 50%;
+}
+
+.navbar-brand img {
+    padding: 5px;
+    max-height: 5.25rem;
+}
+
+.navbar {
+    max-height: 5.25rem !important;
+}
+
+.navbar-item {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.button.is-primary.is-outlined {
+    font-size: 18px;
+}
+
+.box {
+    background: white;
+    border-radius: 12px;
+}
+
+section.section.cases.has-text-centered {
+    background: #4078C1 !important;
+}
+
+body > section.section.cases.has-text-centered > div > div.box > div > div {
+    padding: 60px 40px;
+}
+
+.sager, .sager > h1 {
+    color: white;
+}
+
+.sager {
+    padding-bottom: 60px;
+}
+
+table td, table th {
+    text-align: center !important;
+}

@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="hero is-white has-text-centered">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column">
+                        <h1 class="title is-spaced is-size-1-desktop is-size-2-tablet is-size-3-mobile">
+                            Malerpris.dk</h1>
+                        <h2 class="subtitle is-size-4-desktop">v. Allan René Jakobsen</h2>
+                        <img class="avatar" src="{{ url_for('static', filename='img/profile.jpg') }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section is-medium is-primary has-text-centered is-long">
+        <div class="container">
+            <div class="column is-centered">
+                <h1 class="title is-spaced is-size-3-desktop is-size-4-mobile">
+                    Vi udfører opmåling og beregning af bygningsmalerarbejde for malerfirmaer i hele Danmark.
+                </h1>
+                <h2 class="subtitle is-size-5-desktop">
+                    Kontakt os på <i class="fas fa-phone"></i> 24 69 66 04 hvis i ønsker en sag beregnet.
+                </h2>
+
+                <h3 class="subtitle is-size-6-desktop" style="padding-top: 40px">
+                    Såfremt udbudsmaterialet er sendt elektronisk, udskriver vi materialet på egen
+                    storformatprinter.
+                </h3>
+            </div>
+        </div>
+    </section>
+    <section class="section cases has-text-centered">
+        <div class="container">
+            <div class="column is-centered">
+                <div class="column sager">
+                    <i class="fas fa-pencil-ruler"></i>
+                    <h1 class="title is-size-4 is-spaced">Sager</h1>
+                    <p>Kommende samt igangværende sager.</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="box">
+                <div class="columns">
+                    <div class="column is-centered">
+                        <table class="table is-responsive is-fullwidth" id="cases">
+                            <thead>
+                            <tr>
+                                <th>Sagsnavn</th>
+                                <th>Dato</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        $(document).ready(function () {
+            $('#cases').DataTable({
+                ajax: {
+                    url: "api/sager",
+                    dataSrc: "results"
+                },
+                columns: [
+                    {
+                        data: 0
+                    },
+                    {
+                        data: 1,
+                        render: function (data) {
+                            return moment(date);
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+{% endblock %}
