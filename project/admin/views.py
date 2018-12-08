@@ -1,7 +1,7 @@
 from datetime import timedelta
 
 from flask import render_template, redirect, url_for, flash
-from flask_babelex import gettext
+from flask_babelplus import gettext
 from flask_login import login_required, login_user, logout_user
 
 from project import bcrypt

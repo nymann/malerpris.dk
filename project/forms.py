@@ -1,3 +1,4 @@
+from flask_babelplus import gettext
 from flask_wtf import FlaskForm
 from wtforms import StringField, BooleanField
 from wtforms.validators import DataRequired, Email, Length
@@ -5,8 +6,9 @@ from wtforms.validators import DataRequired, Email, Length
 
 class LoginForm(FlaskForm):
     email = StringField(label='email', validators=[DataRequired(), Email()])
+    u = gettext("Password should minimum be 8 characters, and maximum 100 characters.")
     password = StringField(label='password', validators=[
-        Length(min=8, max=100, message="Password should minimum be 8 characters, and maximum 100 characters.")]
+        Length(min=8, max=100, message=u)]
     )
     remember = BooleanField(label='remember')
 

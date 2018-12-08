@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-08 11:55+0100\n"
-"PO-Revision-Date: 2018-12-08 12:01+0100\n"
+"PO-Revision-Date: 2018-12-08 13:25+0100\n"
 "Last-Translator: \n"
 "Language: da\n"
 "Language-Team: da <LL@li.org>\n"
@@ -113,7 +113,7 @@ msgstr "Kontakt os på"
 
 #: site/templates/site/index.html:25
 msgid "if you want a case calculated"
-msgstr "hvis i ønsker en sag beregnet."
+msgstr "hvis i ønsker en sag beregnet"
 
 #: site/templates/site/index.html:38
 msgid "This is what we are currently working on!"

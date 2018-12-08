@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-12-08 11:55+0100\n"
+"POT-Creation-Date: 2018-12-08 13:24+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,8 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: __init__.py:38
+#: __init__.py:45
 msgid "You need to be authenticated to visit that page."
+msgstr ""
+
+#: forms.py:9
+msgid "Password should minimum be 8 characters, and maximum 100 characters."
 msgstr ""
 
 #: admin/views.py:33

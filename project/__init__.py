@@ -1,7 +1,7 @@
-from flask import Flask
+from flask import Flask, request
 from flask_babelplus import Babel, gettext
 from flask_bcrypt import Bcrypt
-from flask_login import LoginManager
+from flask_login import LoginManager, current_user
 from sentry_sdk.integrations.flask import FlaskIntegration
 
 from config import Config
@@ -33,6 +33,13 @@ def initialize_extensions(app):
 
     # Babel
     babel.init_app(app=app)
+
+    @babel.localeselector
+    def get_locale():
+        if current_user and current_user.is_authenticated:
+            # return current_user.locale
+            return 'da'
+        return request.accept_languages.best_match(['da', 'en'])
 
     # Login
     login_manager.login_message = gettext("You need to be authenticated to visit that page.")
