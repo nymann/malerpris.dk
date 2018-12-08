@@ -1,0 +1,156 @@
+# Danish translations for PROJECT.
+# Copyright (C) 2018 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2018-12-08 11:55+0100\n"
+"PO-Revision-Date: 2018-12-08 12:01+0100\n"
+"Last-Translator: \n"
+"Language: da\n"
+"Language-Team: da <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+"X-Generator: Poedit 2.2\n"
+
+#: __init__.py:38
+msgid "You need to be authenticated to visit that page."
+msgstr "Du skal være logget ind for at tilgå den side."
+
+#: admin/views.py:33
+msgid "logged in successfully!"
+msgstr "loggede ind med success!"
+
+#: admin/views.py:37
+msgid "User does not exist!"
+msgstr "Bruger eksisterer ikke!"
+
+#: admin/views.py:56
+msgid "User already exists!"
+msgstr "Bruger eksisterer allerede!"
+
+#: admin/views.py:61
+msgid "User created."
+msgstr "Bruger oprettet."
+
+#: admin/templates/admin/case_form.html:4 site/templates/site/index.html:49
+msgid "Case name"
+msgstr "Sagsnavn"
+
+#: admin/templates/admin/case_form.html:13 site/templates/site/index.html:50
+msgid "Date"
+msgstr "Dato"
+
+#: admin/templates/admin/case_form.html:23
+msgid "Add"
+msgstr "Tilføj"
+
+#: admin/templates/admin/create_user.html:3
+msgid "Create user"
+msgstr "Opret bruger"
+
+#: admin/templates/admin/create_user.html:15
+msgid "Create User"
+msgstr "Opret Bruger"
+
+#: admin/templates/admin/index.html:3
+msgid "Admin"
+msgstr "Admin"
+
+#: admin/templates/admin/index.html:15
+msgid "Add Case"
+msgstr "Tilføj Sag"
+
+#: admin/templates/admin/login.html:3 admin/templates/admin/login.html:15
+msgid "Login"
+msgstr "Log ind"
+
+#: admin/templates/admin/user_form.html:4
+msgid "Email"
+msgstr "Email"
+
+#: admin/templates/admin/user_form.html:7
+msgid "user@domain.com"
+msgstr "bruger@domæne.dk"
+
+#: admin/templates/admin/user_form.html:14
+msgid "Password"
+msgstr "Kodeord"
+
+#: admin/templates/admin/user_form.html:17
+msgid "********"
+msgstr "********"
+
+#: admin/templates/admin/user_form.html:32
+msgid "Submit"
+msgstr "Indsend"
+
+#: site/templates/site/index.html:11
+msgid "by"
+msgstr "v."
+
+#: site/templates/site/index.html:12
+msgid "Profile picture of Allan René Jakobsen"
+msgstr "Profilbillede af Allan René Jakobsen"
+
+#: site/templates/site/index.html:22
+msgid ""
+"We carry out surveying and calculation of building painting for painting "
+"companies throughout Denmark"
+msgstr ""
+"Vi udfører opmåling og beregning af bygningsmalerarbejde for malerfirmaer "
+"i hele Danmark"
+
+#: site/templates/site/index.html:25
+msgid "Contact us on"
+msgstr "Kontakt os på"
+
+#: site/templates/site/index.html:25
+msgid "if you want a case calculated"
+msgstr "hvis i ønsker en sag beregnet."
+
+#: site/templates/site/index.html:38
+msgid "This is what we are currently working on!"
+msgstr "Dette er hvad vi arbejder på for tiden!"
+
+#: templates/base.html:35
+msgid "Contact"
+msgstr "Kontakt"
+
+#: templates/base.html:44
+msgid "Logout"
+msgstr "Log ud"
+
+#: templates/errors/internal_server_error.html:5
+#: templates/errors/internal_server_error.html:17
+msgid "500 INTERNAL SERVER ERROR"
+msgstr "500 INTERN SERVER FEJL"
+
+#: templates/errors/internal_server_error.html:14
+#: templates/errors/page_not_found.html:12
+msgid "Oops!"
+msgstr "Oops!"
+
+#: templates/errors/internal_server_error.html:20
+msgid "This is not working properly, our developer has been notified."
+msgstr ""
+"Det her virker ikke som det skal, vores udvikler er blevet notificeret."
+
+#: templates/errors/page_not_found.html:3
+#: templates/errors/page_not_found.html:15
+msgid "404 PAGE NOT FOUND"
+msgstr "404 SIDEN KUNNE IKKE FINDES"
+
+#: templates/errors/page_not_found.html:18
+msgid "We couldn't find the page that you're looking for."
+msgstr "Vi kunne ikke finde den side du ledte efter."
+
+#: templates/errors/page_not_found.html:21
+msgid "Go "
+msgstr "Gå "

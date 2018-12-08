@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_babelex import Babel, gettext
+from flask_babelplus import Babel, gettext
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from sentry_sdk.integrations.flask import FlaskIntegration
