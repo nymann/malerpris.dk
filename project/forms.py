@@ -12,3 +12,8 @@ class LoginForm(FlaskForm):
 
     def __repr__(self):
         return f"email: {self.email.data}\npassword: {self.password.data}\nremember: {self.remember.data}"
+
+
+class CaseForm(FlaskForm):
+    case_name = StringField(label='case_name', validators=[DataRequired()])
+    case_date = StringField(label='case_date', validators=[DataRequired()])

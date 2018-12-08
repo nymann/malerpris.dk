@@ -9,7 +9,7 @@
                         <h1 class="title is-spaced is-size-1-desktop is-size-2-tablet is-size-3-mobile">
                             Malerpris.dk</h1>
                         <h2 class="subtitle is-size-4-desktop">{{ _("by") }} Allan René Jakobsen</h2>
-                        <img class="avatar" src="{{ url_for('static', filename='img/profile.jpg') }}" alt="{{ _("Profile picture of Allan René Jakobsen") }}">
+                        <img class="avatar" src="{{ url_for('static', filename='img/profile.jpg') }}" alt="{{ _("Profile picture of Allan René Jakobsen") }}" width="250px">
                     </div>
                 </div>
             </div>
@@ -70,12 +70,12 @@
                 },
                 columns: [
                     {
-                        data: 1
+                        data: 2
                     },
                     {
-                        data: 2,
+                        data: 1,
                         render: function (data) {
-                            return moment(date);
+                            return data;
                         }
                     }
                 ]

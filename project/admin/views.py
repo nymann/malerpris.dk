@@ -6,14 +6,19 @@ from flask_login import login_required, login_user, logout_user
 
 from project import bcrypt
 from project.admin import admin
-from project.forms import LoginForm
-from project.models import User
+from project.forms import LoginForm, CaseForm
+from project.models import User, Case
 
 
-@admin.route("/")
+@admin.route("/", methods=['GET', 'POST'])
 @login_required
 def index():
-    return render_template("errors/internal_server_error.html")
+    form = CaseForm()
+    if form.validate_on_submit():
+        case = Case(form=form)
+        case.store()
+
+    return render_template("admin/index.html", form=form)
 
 
 @admin.route("/login", methods=['GET', 'POST'])

@@ -1,6 +1,8 @@
 from datetime import datetime
 
 from flask import jsonify
+from sqlalchemy import asc
+
 from project.api import api
 from project.models import db, Case
 
@@ -13,5 +15,5 @@ def cases():
         Case.name.label("name")
     ).filter(
         Case.date >= datetime.now()
-    ).all()
+    ).order_by(asc("date")).all()
     return jsonify(cases=cases)
