@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="has-navbar-fixed-top">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
@@ -15,12 +15,15 @@
     <script src="http://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 </head>
 <body>
+<div id="note">
+
+</div>
 {% block navbar %}
-    <nav class="navbar is-transparent">
+    <nav class="navbar is-transparent is-fixed-top">
         <div class="container">
             <div class="navbar-brand">
                 <a class="navbar-item" href="{{ url_for('site.index') }}">
-                    <span class="is-size-4-desktop has-text-dark">Malerpris.dk</span>
+                    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="">
                 </a>
             </div>
             <div class="navbar-menu" id="navMenu">
@@ -32,11 +35,34 @@
                             </a>
                         </p>
                     </div>
+                    {% if current_user.is_authenticated %}
+                        <div class="navbar-item">
+                            <p class="control">
+                                <a class="button is-primary is-outlined is-rounded"
+                                   href="{{ url_for("admin.logout") }}">
+                                    <span>{{ _("Logout") }}</span>
+                                </a>
+                            </p>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </nav>
 {% endblock %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div id="notification-list">
+            <ul>
+                {% for category, message in messages %}
+                    <li class="has-background-{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% endwith %}
+
+
 {% block content %}
 
 {% endblock %}
@@ -45,5 +71,6 @@
 {% block scripts %}
 
 {% endblock %}
+
 
 </html>

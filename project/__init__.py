@@ -1,5 +1,6 @@
 from flask import Flask
-from flask_babelex import Babel
+from flask_babelex import Babel, gettext
+from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from sentry_sdk.integrations.flask import FlaskIntegration
 
@@ -11,6 +12,7 @@ import sentry_sdk
 login_manager = LoginManager()
 login_manager.login_view = "admin.login"
 babel = Babel()
+bcrypt = Bcrypt()
 
 
 def create_app():
@@ -23,10 +25,18 @@ def create_app():
 
 
 def initialize_extensions(app):
+    # Database
     from project.models import db
     db.init_app(app=app)
     with app.app_context():
         db.create_all(app=app)
+
+    # Babel
+    babel.init_app(app=app)
+
+    # Login
+    login_manager.login_message = gettext("You need to be authenticated to visit that page.")
+    login_manager.login_message_category = "info"
     login_manager.init_app(app=app)
     from project.models import User
 
@@ -34,7 +44,9 @@ def initialize_extensions(app):
     def user_loader(email):
         return User.query.get(email)
 
-    babel.init_app(app=app)
+    bcrypt.init_app(app=app)
+
+    # Sentry
     sentry_sdk.init(
         integrations=[FlaskIntegration()],
         release="1.0.0"
@@ -43,7 +55,10 @@ def initialize_extensions(app):
 
 def register_blueprints(app):
     from project.admin import admin
-    from project.site import site
-
     app.register_blueprint(admin)
+
+    from project.site import site
     app.register_blueprint(site)
+
+    from project.api import api
+    app.register_blueprint(api)

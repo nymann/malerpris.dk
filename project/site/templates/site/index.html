@@ -8,8 +8,8 @@
                     <div class="column">
                         <h1 class="title is-spaced is-size-1-desktop is-size-2-tablet is-size-3-mobile">
                             Malerpris.dk</h1>
-                        <h2 class="subtitle is-size-4-desktop">v. Allan René Jakobsen</h2>
-                        <img class="avatar" src="{{ url_for('static', filename='img/profile.jpg') }}">
+                        <h2 class="subtitle is-size-4-desktop">{{ _("by") }} Allan René Jakobsen</h2>
+                        <img class="avatar" src="{{ url_for('static', filename='img/profile.jpg') }}" alt="{{ _("Profile picture of Allan René Jakobsen") }}">
                     </div>
                 </div>
             </div>
@@ -19,16 +19,14 @@
         <div class="container">
             <div class="column is-centered">
                 <h1 class="title is-spaced is-size-3-desktop is-size-4-mobile">
-                    Vi udfører opmåling og beregning af bygningsmalerarbejde for malerfirmaer i hele Danmark.
+                    {{ _("We carry out surveying and calculation of building painting for painting companies throughout Denmark") }}
                 </h1>
                 <h2 class="subtitle is-size-5-desktop">
-                    Kontakt os på <i class="fas fa-phone"></i> 24 69 66 04 hvis i ønsker en sag beregnet.
+                    {{ _("Contact us on") }} <i class="fas fa-phone"></i> 24 69 66 04 {{ _("if you want a case calculated") }}.
                 </h2>
-
-                <h3 class="subtitle is-size-6-desktop" style="padding-top: 40px">
-                    Såfremt udbudsmaterialet er sendt elektronisk, udskriver vi materialet på egen
-                    storformatprinter.
-                </h3>
+                <div class="arrow bounce" style="padding-top: 40px">
+                    <i class="fas fa-arrow-down is-size-1-desktop has-text-primary"></i>
+                </div>
             </div>
         </div>
     </section>
@@ -36,9 +34,8 @@
         <div class="container">
             <div class="column is-centered">
                 <div class="column sager">
-                    <i class="fas fa-pencil-ruler"></i>
-                    <h1 class="title is-size-4 is-spaced">Sager</h1>
-                    <p>Kommende samt igangværende sager.</p>
+                    <h1 class="title is-size-4 is-spaced"><i
+                            class="fas fa-pencil-ruler"></i> {{ _("This is what we are currently working on!") }}</h1>
                 </div>
             </div>
         </div>
@@ -49,8 +46,8 @@
                         <table class="table is-responsive is-fullwidth" id="cases">
                             <thead>
                             <tr>
-                                <th>Sagsnavn</th>
-                                <th>Dato</th>
+                                <th>{{ _("Case name") }}</th>
+                                <th>{{ _("Name") }}</th>
                             </tr>
                             </thead>
                         </table>
@@ -65,16 +62,18 @@
     <script>
         $(document).ready(function () {
             $('#cases').DataTable({
+                searching: false,
+                bPaginate: false,
                 ajax: {
-                    url: "api/sager",
-                    dataSrc: "results"
+                    url: "api/cases",
+                    dataSrc: "cases"
                 },
                 columns: [
                     {
-                        data: 0
+                        data: 1
                     },
                     {
-                        data: 1,
+                        data: 2,
                         render: function (data) {
                             return moment(date);
                         }

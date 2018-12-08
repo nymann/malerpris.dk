@@ -1,7 +1,11 @@
+sqlalchemy
 flask
 flask_login
 flask_sqlalchemy
 psycopg2-binary
-flask-restplus
 flask-babelex
 sentry-sdk[flask]
+Flask-WTF
+wtforms
+bcrypt
+flask-bcrypt

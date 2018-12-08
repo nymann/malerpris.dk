@@ -1,0 +1,35 @@
+<form method="post">
+    {{ form.hidden_tag() }}
+    <div class="field">
+        <label class="label">{{ _("Email") }}</label>
+        <div class="control">
+            <input type="email"
+                   placeholder="{{ _("user@domain.com") }}"
+                   class="input is-large"
+                   autofocus
+                   name="email">
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">{{ _("Password") }}</label>
+        <div class="control">
+            <input type="password"
+                   placeholder="{{ _("********") }}"
+                   class="input is-large"
+                   name="password">
+        </div>
+    </div>
+    {% if form.remember %}
+        <div class="field">
+            <label class="checkbox">
+                <input type="checkbox" name="remember">
+                Remember me
+            </label>
+        </div>
+    {% endif %}
+    <div class="field">
+        <div class="control">
+            <button class="button is-large is-primary">{{ _("Submit") }}</button>
+        </div>
+    </div>
+</form>
