@@ -41,10 +41,6 @@ body > section.section.cases.has-text-centered > div > div.box > div > div {
     padding-bottom: 60px;
 }
 
-table td, table th {
-    text-align: center !important;
-}
-
 .arrow {
     text-align: center;
     margin: 3% 0;
