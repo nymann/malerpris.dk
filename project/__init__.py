@@ -9,6 +9,8 @@ from project.error_handlers import register_handlers
 
 import sentry_sdk
 
+from project.utils.encoder import CustomJSONEncoder
+
 login_manager = LoginManager()
 login_manager.login_view = "admin.login"
 babel = Babel()
@@ -17,6 +19,7 @@ bcrypt = Bcrypt()
 
 def create_app():
     app = Flask(__name__)
+    app.json_encoder = CustomJSONEncoder
     app.config.from_object(Config)
     initialize_extensions(app=app)
     register_blueprints(app=app)
@@ -36,9 +39,6 @@ def initialize_extensions(app):
 
     @babel.localeselector
     def get_locale():
-        if current_user and current_user.is_authenticated:
-            # return current_user.locale
-            return 'da'
         return request.accept_languages.best_match(['da', 'en'])
 
     # Login
