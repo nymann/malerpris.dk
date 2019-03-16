@@ -54,46 +54,27 @@
                             <tr>
                                 <th>{{ _("Case name") }}</th>
                                 <th><i class="far fa-calendar"></i> {{ _("Date") }}</th>
-                                <th><i class="fas fa-envelope"></i> {{ _("Mail") }}</th>
+                                <th style="width: 40px;">{{ _("Mail") }}</th>
                             </tr>
                             </thead>
+                            <tbody>
+                            {% for case in cases %}
+                                <tr>
+                                    <td>{{ case.name }}</td>
+                                    <td>{{ case.date }}</td>
+                                    <td>
+                                        <a href="mailto:rene@malerpris.dk?subject={{ case.name }}">
+                                            <i class="fas fa-envelope"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+
+                            </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-{% endblock %}
-
-{% block scripts %}
-    <script>
-        $(document).ready(function () {
-            $('#cases').DataTable({
-                searching: false,
-                bPaginate: false,
-                ajax: {
-                    url: "api/cases",
-                    dataSrc: "cases"
-                },
-                columns: [
-                    {
-                        data: 2
-                    },
-                    {
-                        data: 1,
-                        render: function (data) {
-                            return data;
-                        }
-                    },
-                    {
-                        data: 2,
-                        render: function (data) {
-                            let d = '<a href="mailto:rene@malerpris.dk?subject=' + data + '">' + data + '</a>';
-                            return d
-                        }
-                    }
-                ]
-            });
-        });
-    </script>
 {% endblock %}
