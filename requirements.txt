@@ -11,3 +11,5 @@ bcrypt
 flask-bcrypt
 jinja2
 setuptools
+flask_migrate
+pylint

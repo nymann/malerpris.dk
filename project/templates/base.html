@@ -30,23 +30,14 @@
             </div>
             <div class="navbar-menu" id="navMenu">
                 <div class="navbar-end">
-                    <div class="navbar-item">
-                        <p class="control">
-                            <a class="button is-primary is-outlined is-rounded" href="#">
-                                <span>{{ _("Contact") }}</span>
-                            </a>
-                        </p>
-                    </div>
-                    {% if current_user.is_authenticated %}
-                        <div class="navbar-item">
-                            <p class="control">
-                                <a class="button is-primary is-outlined is-rounded"
-                                   href="{{ url_for("admin.logout") }}">
-                                    <span>{{ _("Logout") }}</span>
-                                </a>
-                            </p>
-                        </div>
-                    {% endif %}
+                    <a class="navbar-item"
+                       href="{{ url_for("static", filename="Leveringsbetingelser.pdf") }}"
+                       target="_blank">
+                        <span><i class="fas fa-file-contract"></i> {{ _("Conditions") }}</span>
+                    </a>
+                    <a class="navbar-item" href="mailto:rene@malerpris.dk">
+                        <span><i class="fas fa-envelope"></i> rene@malerpris.dk</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -65,9 +56,18 @@
 {% endwith %}
 
 
-{% block content %}
+{% block content %}{% endblock %}
 
-{% endblock %}
+
+<footer class="footer has-background-primary">
+    <div class="container has-text-white-ter" id="my-footer">
+        <strong class="has-text-white-ter">Malerpris.dk</strong>
+        <p>Harevej 13, 8660 Skanderborg</p>
+        <p>CVR 27 34 28 41</p>
+    </div>
+</footer>
+
+
 </body>
 
 {% block scripts %}

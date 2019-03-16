@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-12-08 11:55+0100\n"
-"PO-Revision-Date: 2018-12-08 13:25+0100\n"
+"POT-Creation-Date: 2019-03-16 13:41+0100\n"
+"PO-Revision-Date: 2019-03-16 13:46+0100\n"
 "Last-Translator: \n"
 "Language: da\n"
 "Language-Team: da <LL@li.org>\n"
@@ -17,33 +17,45 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
-"X-Generator: Poedit 2.2\n"
+"X-Generator: Poedit 2.2.1\n"
 
-#: __init__.py:38
+#: __init__.py:48
 msgid "You need to be authenticated to visit that page."
 msgstr "Du skal være logget ind for at tilgå den side."
 
-#: admin/views.py:33
+#: admin/forms.py:15
+msgid "Password should minimum be 8 characters, and maximum 100 characters."
+msgstr "Adgangskoden skal mindst være 8 tegn og maksimalt 100 tegn."
+
+#: admin/views.py:26
+msgid "Failed to add case."
+msgstr "Tilføjelsen af den nye sag fejlede."
+
+#: admin/views.py:27
+msgid "Case added"
+msgstr "Sag tilføjet"
+
+#: admin/views.py:46
 msgid "logged in successfully!"
 msgstr "loggede ind med success!"
 
-#: admin/views.py:37
+#: admin/views.py:50
 msgid "User does not exist!"
 msgstr "Bruger eksisterer ikke!"
 
-#: admin/views.py:56
+#: admin/views.py:77
 msgid "User already exists!"
 msgstr "Bruger eksisterer allerede!"
 
-#: admin/views.py:61
+#: admin/views.py:82
 msgid "User created."
 msgstr "Bruger oprettet."
 
-#: admin/templates/admin/case_form.html:4 site/templates/site/index.html:49
+#: admin/templates/admin/case_form.html:4 site/templates/site/index.html:55
 msgid "Case name"
 msgstr "Sagsnavn"
 
-#: admin/templates/admin/case_form.html:13 site/templates/site/index.html:50
+#: admin/templates/admin/case_form.html:13 site/templates/site/index.html:56
 msgid "Date"
 msgstr "Dato"
 
@@ -95,11 +107,11 @@ msgstr "Indsend"
 msgid "by"
 msgstr "v."
 
-#: site/templates/site/index.html:12
+#: site/templates/site/index.html:15
 msgid "Profile picture of Allan René Jakobsen"
 msgstr "Profilbillede af Allan René Jakobsen"
 
-#: site/templates/site/index.html:22
+#: site/templates/site/index.html:25
 msgid ""
 "We carry out surveying and calculation of building painting for painting "
 "companies throughout Denmark"
@@ -107,25 +119,25 @@ msgstr ""
 "Vi udfører opmåling og beregning af bygningsmalerarbejde for malerfirmaer "
 "i hele Danmark"
 
-#: site/templates/site/index.html:25
+#: site/templates/site/index.html:28
 msgid "Contact us on"
 msgstr "Kontakt os på"
 
-#: site/templates/site/index.html:25
+#: site/templates/site/index.html:30
 msgid "if you want a case calculated"
 msgstr "hvis i ønsker en sag beregnet"
 
-#: site/templates/site/index.html:38
+#: site/templates/site/index.html:43
 msgid "This is what we are currently working on!"
 msgstr "Dette er hvad vi arbejder på for tiden!"
 
-#: templates/base.html:35
-msgid "Contact"
-msgstr "Kontakt"
+#: site/templates/site/index.html:57
+msgid "Mail"
+msgstr "Mail"
 
-#: templates/base.html:44
-msgid "Logout"
-msgstr "Log ud"
+#: templates/base.html:36
+msgid "Conditions"
+msgstr "Leveringsbetingelser"
 
 #: templates/errors/internal_server_error.html:5
 #: templates/errors/internal_server_error.html:17
@@ -140,7 +152,8 @@ msgstr "Oops!"
 #: templates/errors/internal_server_error.html:20
 msgid "This is not working properly, our developer has been notified."
 msgstr ""
-"Det her virker ikke som det skal, vores udvikler er blevet notificeret."
+"Det her virker ikke som det skal, vores udvikler har fået en besked om "
+"dette."
 
 #: templates/errors/page_not_found.html:3
 #: templates/errors/page_not_found.html:15
@@ -154,3 +167,9 @@ msgstr "Vi kunne ikke finde den side du ledte efter."
 #: templates/errors/page_not_found.html:21
 msgid "Go "
 msgstr "Gå "
+
+#~ msgid "Contact"
+#~ msgstr "Kontakt"
+
+#~ msgid "Logout"
+#~ msgstr "Log ud"
