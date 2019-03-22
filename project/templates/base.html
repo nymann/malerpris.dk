@@ -28,16 +28,34 @@
             </div>
             <div class="navbar-menu" id="navMenu">
                 <div class="navbar-end">
-                    <a class="navbar-item"
-                       href="{{ url_for("static", filename="Leveringsbetingelser.pdf") }}"
-                       target="_blank">
-                        <span><i class="fas fa-file-contract"></i> {{ _("Conditions") }}</span>
-                    </a>
-                    <a class="navbar-item" href="mailto:rene@malerpris.dk">
-                        <span><i class="fas fa-envelope"></i> rene@malerpris.dk</span>
-                    </a>
-                </div>
+                    {% if current_user.admin %}
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link">
+                                {{ _("Admin") }}
+                            </a>
+
+                            <div class="navbar-dropdown">
+                                <a class="navbar-item" href="{{ url_for("admin.case") }}">
+                                    {{ _("New case") }}
+                                </a>
+                                <a class="navbar-item" href="{{ url_for("admin.holiday") }}">
+                                    {{ _("Holiday") }}
+                                </a>
+                            </div>
+                        </div>
+                        </div>
+                    {% endif %}
+
+                <a class="navbar-item"
+                   href="{{ url_for("static", filename="Leveringsbetingelser.pdf") }}"
+                   target="_blank">
+                    <span><i class="fas fa-file-contract"></i> {{ _("Conditions") }}</span>
+                </a>
+                <a class="navbar-item" href="mailto:rene@malerpris.dk">
+                    <span><i class="fas fa-envelope"></i> rene@malerpris.dk</span>
+                </a>
             </div>
+        </div>
         </div>
     </nav>
 {% endblock %}

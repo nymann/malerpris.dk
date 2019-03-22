@@ -187,3 +187,8 @@ a.navbar-item {
     flex-direction: row;
     justify-content: space-between;
 }
+
+.holiday {
+    display: flex;
+    justify-content: center;
+}

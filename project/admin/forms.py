@@ -39,4 +39,3 @@ class HolidayForm(FlaskForm):
     """
     from_date = DateField(label="from_date")
     to_date = DateField(label="to_date")
-    show_on_page = BooleanField(label="show_on_page")

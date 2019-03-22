@@ -9,13 +9,15 @@ from flask_login import login_required, login_user, logout_user
 
 from project import bcrypt
 from project.admin import admin
+from project.admin.decorators import is_admin
 from project.admin.forms import LoginForm, CaseForm, HolidayForm
 from project.models import User, Case, Holiday
 
 
 @admin.route("/", methods=['GET', 'POST'])
 @login_required
-def index():
+@is_admin
+def case():
     """
     Admin overview
     :return: renders HTML.
@@ -27,7 +29,7 @@ def index():
         success_message = gettext("Case added")
         case.store(alert_message=alert_message, success_message=success_message)
 
-    return render_template("admin/index.html", form=form)
+    return render_template("admin/case.html", form=form)
 
 
 @admin.route("/login", methods=['GET', 'POST'])
@@ -45,7 +47,7 @@ def login():
             login_user(user=user, remember=form.remember.data, duration=timedelta(days=30))
             error = gettext(u"logged in successfully!")
             flash(message=error, category="success")
-            return redirect(url_for("admin.index"))
+            return redirect(url_for("site.index"))
 
         error = gettext(u"User does not exist!")
         flash(message=error, category="danger")
@@ -60,10 +62,12 @@ def logout():
     :return:
     """
     logout_user()
-    return redirect(url_for('admin.index'))
+    return redirect(url_for('site.index'))
 
 
 @admin.route("/create_user", methods=["GET", "POST"])
+@login_required
+@is_admin
 def create_user():
     """
     Creates a new user.
@@ -81,11 +85,11 @@ def create_user():
             user.store()
             error = gettext(u"User created.")
             flash(message=error, category="success")
-            return redirect(url_for("admin.index"))
+            return redirect(url_for("site.index"))
     return render_template("admin/create_user.html", form=form)
 
 
-@admin.route("/holiday")
+@admin.route("/holiday", methods=["GET", "POST"])
 def holiday():
     """
     Overview of holidays.
@@ -95,4 +99,5 @@ def holiday():
     if form.validate_on_submit():
         holiday = Holiday.from_form(form=form)
         holiday.store()
+        flash("Ferie oprettet.", category="success")
     return render_template("admin/holiday.html", form=form)

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-16 13:41+0100\n"
+"POT-Creation-Date: 2019-03-22 18:11+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,43 +21,65 @@ msgstr ""
 msgid "You need to be authenticated to visit that page."
 msgstr ""
 
+#: admin/decorators.py:12
+msgid "You need to be authenticated and an admin to access that page."
+msgstr ""
+
+#: admin/decorators.py:16
+msgid "Only admin users can access that page, contact the administrator."
+msgstr ""
+
 #: admin/forms.py:15
 msgid "Password should minimum be 8 characters, and maximum 100 characters."
 msgstr ""
 
-#: admin/views.py:26
+#: admin/views.py:28
 msgid "Failed to add case."
 msgstr ""
 
-#: admin/views.py:27
+#: admin/views.py:29
 msgid "Case added"
 msgstr ""
 
-#: admin/views.py:46
+#: admin/views.py:48
 msgid "logged in successfully!"
 msgstr ""
 
-#: admin/views.py:50
+#: admin/views.py:52
 msgid "User does not exist!"
 msgstr ""
 
-#: admin/views.py:77
+#: admin/views.py:81
 msgid "User already exists!"
 msgstr ""
 
-#: admin/views.py:82
+#: admin/views.py:86
 msgid "User created."
 msgstr ""
 
-#: admin/templates/admin/case_form.html:4 site/templates/site/index.html:55
+#: admin/templates/admin/case.html:3 admin/templates/admin/holiday.html:3
+#: templates/base.html:34
+msgid "Admin"
+msgstr ""
+
+#: admin/templates/admin/case.html:15
+msgid "Add Case"
+msgstr ""
+
+#: admin/templates/admin/case_form.html:4 site/templates/site/index.html:60
 msgid "Case name"
 msgstr ""
 
-#: admin/templates/admin/case_form.html:13 site/templates/site/index.html:56
+#: admin/templates/admin/case_form.html:14
+msgid "Case address"
+msgstr ""
+
+#: admin/templates/admin/case_form.html:24 site/templates/site/index.html:61
 msgid "Date"
 msgstr ""
 
-#: admin/templates/admin/case_form.html:23
+#: admin/templates/admin/case_form.html:34
+#: admin/templates/admin/holiday_form.html:23
 msgid "Add"
 msgstr ""
 
@@ -69,12 +91,16 @@ msgstr ""
 msgid "Create User"
 msgstr ""
 
-#: admin/templates/admin/index.html:3
-msgid "Admin"
+#: admin/templates/admin/holiday.html:15 templates/base.html:42
+msgid "Holiday"
 msgstr ""
 
-#: admin/templates/admin/index.html:15
-msgid "Add Case"
+#: admin/templates/admin/holiday_form.html:4
+msgid "From Date"
+msgstr ""
+
+#: admin/templates/admin/holiday_form.html:13
+msgid "To Date"
 msgstr ""
 
 #: admin/templates/admin/login.html:3 admin/templates/admin/login.html:15
@@ -101,37 +127,53 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: site/templates/site/index.html:11
+#: site/templates/site/index.html:6
+msgid "We are on holiday from"
+msgstr ""
+
+#: site/templates/site/index.html:6
+msgid "to"
+msgstr ""
+
+#: site/templates/site/index.html:16
 msgid "by"
 msgstr ""
 
-#: site/templates/site/index.html:15
+#: site/templates/site/index.html:20
 msgid "Profile picture of Allan René Jakobsen"
 msgstr ""
 
-#: site/templates/site/index.html:25
+#: site/templates/site/index.html:30
 msgid ""
 "We carry out surveying and calculation of building painting for painting "
 "companies throughout Denmark"
 msgstr ""
 
-#: site/templates/site/index.html:28
+#: site/templates/site/index.html:33
 msgid "Contact us on"
 msgstr ""
 
-#: site/templates/site/index.html:30
+#: site/templates/site/index.html:35
 msgid "if you want a case calculated"
 msgstr ""
 
-#: site/templates/site/index.html:43
+#: site/templates/site/index.html:48
 msgid "This is what we are currently working on!"
 msgstr ""
 
-#: site/templates/site/index.html:57
+#: site/templates/site/index.html:62
+msgid "Address"
+msgstr ""
+
+#: site/templates/site/index.html:63
 msgid "Mail"
 msgstr ""
 
-#: templates/base.html:36
+#: templates/base.html:39
+msgid "New case"
+msgstr ""
+
+#: templates/base.html:52
 msgid "Conditions"
 msgstr ""
 
