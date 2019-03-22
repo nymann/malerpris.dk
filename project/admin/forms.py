@@ -30,6 +30,7 @@ class CaseForm(FlaskForm):
     """
     case_name = StringField(label="case_name", validators=[DataRequired()])
     case_date = StringField(label="case_date", validators=[DataRequired()])
+    case_address = StringField(label="case_address", validators=[DataRequired()])
 
 
 class HolidayForm(FlaskForm):

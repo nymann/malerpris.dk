@@ -104,13 +104,15 @@ class Case(BaseModel):
     __tablename__ = "case"
     id = DB.Column(UUID(as_uuid=True), primary_key=True)
     name = DB.Column(DB.String, nullable=False)
+    address = DB.Column(DB.String, nullable=False)
     date = DB.Column(DB.Date, nullable=False)
     show_on_page = DB.Column(DB.Boolean, default=True)
 
-    def __init__(self, name, date):
+    def __init__(self, name, date, address):
         self.id = uuid.uuid4()
         self.name = name
         self.date = date
+        self.address = address  # TODO verify address via google maps?
 
     @classmethod
     def from_form(cls, form):
@@ -121,7 +123,8 @@ class Case(BaseModel):
         """
         return cls(
             name=form.case_name.data,
-            date=form.case_date.data
+            date=form.case_date.data,
+            address=form.case_address.data
         )
 
 
