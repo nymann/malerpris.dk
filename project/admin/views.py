@@ -10,7 +10,7 @@ from flask_login import login_required, login_user, logout_user
 from project import bcrypt
 from project.admin import admin
 from project.admin.forms import LoginForm, CaseForm, HolidayForm
-from project.models import User, Case
+from project.models import User, Case, Holiday
 
 
 @admin.route("/", methods=['GET', 'POST'])
@@ -93,6 +93,6 @@ def holiday():
     """
     form = HolidayForm()
     if form.validate_on_submit():
-        print("Holiday form validated")
-        return "Validated"
-    return "Hi"
+        holiday = Holiday.from_form(form=form)
+        holiday.store()
+    return render_template("admin/holiday.html", form=form)

@@ -1,0 +1,26 @@
+<form method="post">
+    {{ form.hidden_tag() }}
+    <div class="field">
+        <label class="label">{{ _("From Date") }}</label>
+        <div class="control">
+            <input type="date"
+                   placeholder="22-11-2018"
+                   class="input is-large"
+                   name="from_date">
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">{{ _("To Date") }}</label>
+        <div class="control">
+            <input type="date"
+                   placeholder="22-11-2018"
+                   class="input is-large"
+                   name="to_date">
+        </div>
+    </div>
+    <div class="field">
+        <div class="control">
+            <button class="button is-large is-primary">{{ _("Add") }}</button>
+        </div>
+    </div>
+</form>
