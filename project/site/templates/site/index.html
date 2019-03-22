@@ -3,7 +3,7 @@
 {% block content %}
     {% if holiday %}
         <div class="holiday has-background-warning">
-            <p>{{ _("We are on holiday from") }} {{ holiday.from_date }} {{ _("to") }} {{ holiday.to_date }}</p>
+            <p>{{ _("We are on holiday from") }} {{ holiday.from_date.strftime("%A den %d. %B %Y") }} {{ _("to") }} {{ holiday.to_date.strftime("%A den %d. %B %Y") }}</p>
         </div>
     {% endif %}
     <section class="hero is-white has-text-centered">
