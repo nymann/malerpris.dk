@@ -3,7 +3,7 @@
 {% block content %}
     {% if holiday %}
         <div class="holiday has-background-warning">
-            <p>{{ _("We are on holiday from") }} {{ holiday.from_date.strftime("%A den %d. %B %Y") }} {{ _("to") }} {{ holiday.to_date.strftime("%A den %d. %B %Y") }}</p>
+            <p>{{ _("We are on holiday from") }} {{ holiday.from_date.strftime("%d. %b %Y") }} {{ _("to") }} {{ holiday.to_date.strftime("%d. %b %Y") }}</p>
         </div>
     {% endif %}
     <section class="hero is-white has-text-centered">
@@ -67,7 +67,7 @@
                             {% for case in cases %}
                                 <tr>
                                     <td>{{ case.name }}</td>
-                                    <td>{{ case.date }}</td>
+                                    <td>{{ case.date.strftime("%d. %b %Y") }}</td>
                                     <td>{{ case.address }}</td>
                                     <td>
                                         <a href="mailto:rene@malerpris.dk?subject={{ case.name }}">
