@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-03-22 18:11+0100\n"
-"PO-Revision-Date: 2019-03-22 18:12+0100\n"
+"PO-Revision-Date: 2019-03-22 18:32+0100\n"
 "Last-Translator: \n"
 "Language: da\n"
 "Language-Team: da <LL@li.org>\n"
@@ -167,7 +167,7 @@ msgstr "Dette er hvad vi arbejder på for tiden!"
 
 #: site/templates/site/index.html:62
 msgid "Address"
-msgstr "Addresse"
+msgstr "Adresse"
 
 #: site/templates/site/index.html:63
 msgid "Mail"
