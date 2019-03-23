@@ -6,7 +6,11 @@
             <input type="text"
                    class="input is-large"
                    autofocus
-                   name="case_name">
+                   name="case_name"
+                    {% if case %}
+                   value="{{ case.name }}"
+                    {% endif %}
+            >
         </div>
     </div>
 
@@ -16,7 +20,11 @@
             <input type="text"
                    class="input is-large"
                    autofocus
-                   name="case_address">
+                   name="case_address"
+                    {% if case %}
+                   value="{{ case.address }}"
+                    {% endif %}
+            >
         </div>
     </div>
 
@@ -26,12 +34,25 @@
             <input type="date"
                    placeholder="22-11-2018"
                    class="input is-large"
-                   name="case_date">
+                   name="case_date"
+                    {% if case %}
+                   value="{{ case.date.strftime("%d-%m-%Y") }}"
+                    {% endif %}
+            >
         </div>
     </div>
     <div class="field">
-        <div class="control">
-            <button class="button is-large is-primary">{{ _("Add") }}</button>
-        </div>
+        {% if case %}
+            <div class="control">
+                <button class="button is-large is-primary">{{ _("Update") }}</button>
+                <a class="button is-large is-danger"
+                   href="{{ url_for("admin.delete_case", case_id=case.id) }}">{{ _("Delete") }}</a>
+            </div>
+        {% else %}
+            <div class="control">
+                <button class="button is-large is-primary">{{ _("Add") }}</button>
+            </div>
+        {% endif %}
+
     </div>
 </form>

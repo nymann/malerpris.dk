@@ -127,6 +127,12 @@ class Case(BaseModel):
             address=form.case_address.data
         )
 
+    def update(self, form):
+        self.name = form.case_name.data,
+        self.date = form.case_date.data,
+        self.address = form.case_address.data
+        return commit()
+
 
 class Holiday(BaseModel):
     """

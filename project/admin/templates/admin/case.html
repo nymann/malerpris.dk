@@ -11,9 +11,15 @@
                         <img src="{{ url_for("static", filename="img/logo.png") }}" alt="">
                     </div>
                     <div class="column is-half">
-                        <h3 class="has-text-dark has-text-weight-bold is-size-1">
-                            {{ _("Add Case") }}
-                        </h3>
+                        {% if case %}
+                            <h3 class="has-text-dark has-text-weight-bold is-size-1">
+                                {{ case.name }}
+                            </h3>
+                        {% else %}
+                            <h3 class="has-text-dark has-text-weight-bold is-size-1">
+                                {{ _("Add Case") }}
+                            </h3>
+                        {% endif %}
                         {% include "admin/case_form.html" %}
                     </div>
                 </div>

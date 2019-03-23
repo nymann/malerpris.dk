@@ -64,16 +64,20 @@
                         </thead>
                         <tbody>
                         {% for case in cases %}
-                            <tr>
-                                <td>{{ case.name }}</td>
-                                <td>{{ case.date.strftime("%d. %b %Y") }}</td>
-                                <td>{{ case.address }}</td>
-                                <td class="is-hidden-mobile">
-                                    <a href="mailto:rene@malerpris.dk?subject={{ case.name }}">
-                                        <i class="fas fa-envelope"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                            {% if current_user.admin %}
+                                <tr class='clickable-row' data-url="{{ url_for("admin.case", case_id=case.id) }}">
+                                    {% else %}
+                                <tr>
+                            {% endif %}
+                        <td>{{ case.name }}</td>
+                        <td>{{ case.date.strftime("%d. %b %Y") }}</td>
+                        <td>{{ case.address }}</td>
+                        <td class="is-hidden-mobile">
+                            <a href="mailto:rene@malerpris.dk?subject={{ case.name }}">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </td>
+                        </tr>
                         {% endfor %}
 
                         </tbody>
@@ -82,4 +86,14 @@
             </div>
         </div>
     </section>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        $(document).ready(function ($) {
+            $(".clickable-row").click(function () {
+                window.location = $(this).data("url");
+            });
+        });
+    </script>
 {% endblock %}

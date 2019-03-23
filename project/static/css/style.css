@@ -196,3 +196,7 @@ a.navbar-item {
 .no-wrap {
     white-space: nowrap;
 }
+
+.clickable-row {
+    cursor: pointer;
+}

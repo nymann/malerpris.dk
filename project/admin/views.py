@@ -3,9 +3,9 @@ This module is used for views (endpoints) prefixed with /admin
 """
 from datetime import timedelta
 
-from flask import render_template, redirect, url_for, flash
+from flask import render_template, redirect, url_for, flash, request
 from flask_babelplus import gettext
-from flask_login import login_required, login_user, logout_user
+from flask_login import login_required, login_user, logout_user, current_user
 
 from project import bcrypt
 from project.admin import admin
@@ -22,14 +22,20 @@ def case():
     Admin overview
     :return: renders HTML.
     """
+    case_id = request.args.get("id", default=None, type=int)
+    data = Case.query.get(case_id) if case_id else None
+
     form = CaseForm()
     if form.validate_on_submit():
-        case = Case.from_form(form=form)
-        alert_message = gettext("Failed to add case.")
-        success_message = gettext("Case added")
-        case.store(alert_message=alert_message, success_message=success_message)
+        if data:
+            data.update()
+        else:
+            data = Case.from_form(form=form)
+            alert_message = gettext("Failed to add case.")
+            success_message = gettext("Case added")
+            data.store(alert_message=alert_message, success_message=success_message)
 
-    return render_template("admin/case.html", form=form)
+    return render_template("admin/case.html", form=form, case=data)
 
 
 @admin.route("/login", methods=['GET', 'POST'])
@@ -38,6 +44,9 @@ def login():
     Endpoint for admin user login.
     :return:
     """
+    if current_user.is_authenticated:
+        flash("Du er allerede logget ind.", category="success")
+        return redirect(url_for("site.index"))
     form = LoginForm()
     if form.validate_on_submit():
         email = form.email.data.lower()
@@ -97,7 +106,15 @@ def holiday():
     """
     form = HolidayForm()
     if form.validate_on_submit():
-        holiday = Holiday.from_form(form=form)
-        holiday.store()
+        data = Holiday.from_form(form=form)
+        data.store()
         flash("Ferie oprettet.", category="success")
     return render_template("admin/holiday.html", form=form)
+
+
+@admin.route("/case/<int:case_id>/delete")
+def delete_case(case_id):
+    data = Case.query.get_or_404(case_id)
+    data.remove()
+    flash("Sag slettet", category="success")
+    return redirect(url_for("site.index"))
