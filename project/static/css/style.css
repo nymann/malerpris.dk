@@ -192,3 +192,7 @@ a.navbar-item {
     display: flex;
     justify-content: center;
 }
+
+.no-wrap {
+    white-space: nowrap;
+}

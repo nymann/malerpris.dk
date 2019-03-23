@@ -52,34 +52,32 @@
         </div>
         <div class="container">
             <div class="box">
-                <div class="columns">
-                    <div class="column is-centered">
-                        <table class="table is-responsive is-fullwidth" id="cases">
-                            <thead>
+                <div class="table-container is-centered">
+                    <table class="table is-responsive is-fullwidth" id="cases">
+                        <thead>
+                        <tr>
+                            <th>{{ _("Case name") }}</th>
+                            <th class="no-wrap"><i class="far fa-calendar"></i> {{ _("Date") }}</th>
+                            <th class="no-wrap"><i class="fas fa-map-marked"></i> {{ _("Address") }}</th>
+                            <th class="is-hidden-mobile">{{ _("Mail") }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for case in cases %}
                             <tr>
-                                <th>{{ _("Case name") }}</th>
-                                <th><i class="far fa-calendar"></i> {{ _("Date") }}</th>
-                                <th><i class="fas fa-map-marked"></i> {{ _("Address") }}</th>
-                                <th style="width: 40px;">{{ _("Mail") }}</th>
+                                <td>{{ case.name }}</td>
+                                <td>{{ case.date.strftime("%d. %b %Y") }}</td>
+                                <td>{{ case.address }}</td>
+                                <td class="is-hidden-mobile">
+                                    <a href="mailto:rene@malerpris.dk?subject={{ case.name }}">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                </td>
                             </tr>
-                            </thead>
-                            <tbody>
-                            {% for case in cases %}
-                                <tr>
-                                    <td>{{ case.name }}</td>
-                                    <td>{{ case.date.strftime("%d. %b %Y") }}</td>
-                                    <td>{{ case.address }}</td>
-                                    <td>
-                                        <a href="mailto:rene@malerpris.dk?subject={{ case.name }}">
-                                            <i class="fas fa-envelope"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            {% endfor %}
+                        {% endfor %}
 
-                            </tbody>
-                        </table>
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
