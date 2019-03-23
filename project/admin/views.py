@@ -28,7 +28,7 @@ def case():
     form = CaseForm()
     if form.validate_on_submit():
         if data:
-            data.update()
+            data.update(form=form)
         else:
             data = Case.from_form(form=form)
             alert_message = gettext("Failed to add case.")
