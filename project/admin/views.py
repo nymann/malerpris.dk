@@ -28,13 +28,20 @@ def case():
     form = CaseForm()
     if form.validate_on_submit():
         if data:
-            data.update(form=form)
+            success = data.update(form=form)
+            if success:
+                flash_message = "Updated case successfully"
+                flash_category = "success"
+            else:
+                flash_message = "Failed to update case"
+                flash_category = "danger"
+            flash(message=flash_message, category=flash_category)
         else:
             data = Case.from_form(form=form)
             alert_message = gettext("Failed to add case.")
             success_message = gettext("Case added")
             data.store(alert_message=alert_message, success_message=success_message)
-
+        return redirect(url_for("site.index"))
     return render_template("admin/case.html", form=form, case=data)
 
 
@@ -99,6 +106,7 @@ def create_user():
 
 
 @admin.route("/holiday", methods=["GET", "POST"])
+@is_admin
 def holiday():
     """
     Overview of holidays.
@@ -113,6 +121,7 @@ def holiday():
 
 
 @admin.route("/case/<string:case_id>/delete")
+@is_admin
 def delete_case(case_id):
     data = Case.query.get_or_404(case_id)
     data.remove()
