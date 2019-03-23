@@ -53,16 +53,15 @@
                         </div>
                     {% endif %}
 
-                <a class="navbar-item"
+                <a class="navbar-item no-wrap"
                    href="{{ url_for("static", filename="Leveringsbetingelser.pdf") }}"
                    target="_blank">
                     <span><i class="fas fa-file-contract"></i> {{ _("Conditions") }}</span>
                 </a>
-                <a class="navbar-item" href="mailto:rene@malerpris.dk">
+                <a class="navbar-item no-wrap" href="mailto:rene@malerpris.dk">
                     <span><i class="fas fa-envelope"></i> rene@malerpris.dk</span>
                 </a>
             </div>
-        </div>
         </div>
     </nav>
 {% endblock %}
