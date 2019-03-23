@@ -59,7 +59,7 @@ def initialize_extensions(app):
     # Sentry
     sentry_sdk.init(
         integrations=[FlaskIntegration()],
-        release="1.0.0"
+        release="1.0.1"
     )
 
 
