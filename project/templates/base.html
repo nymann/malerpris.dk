@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Malerpris.dk - {% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/mystyles.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?version=1.0.0">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"
@@ -78,11 +78,10 @@
 <footer class="footer has-background-primary">
     <div class="container has-text-white-ter" id="my-footer">
         <strong class="has-text-white-ter">Malerpris.dk</strong>
-        <p>Harevej 13, 8660 Skanderborg</p>
-        <p>CVR 27 34 28 41</p>
+        <p class="is-hidden-mobile">Harevej 13, 8660 Skanderborg</p>
+        <p class="no-wrap">CVR 27 34 28 41</p>
     </div>
 </footer>
-
 
 </body>
 
