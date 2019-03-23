@@ -22,7 +22,7 @@ def case():
     Admin overview
     :return: renders HTML.
     """
-    case_id = request.args.get("id", default=None, type=int)
+    case_id = request.args.get("case_id", default=None, type=int)
     data = Case.query.get(case_id) if case_id else None
 
     form = CaseForm()
