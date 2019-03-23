@@ -22,7 +22,7 @@ def case():
     Admin overview
     :return: renders HTML.
     """
-    case_id = request.args.get("case_id", default=None, type=int)
+    case_id = request.args.get("case_id", default=None, type=str)
     data = Case.query.get(case_id) if case_id else None
 
     form = CaseForm()
@@ -112,7 +112,7 @@ def holiday():
     return render_template("admin/holiday.html", form=form)
 
 
-@admin.route("/case/<int:case_id>/delete")
+@admin.route("/case/<string:case_id>/delete")
 def delete_case(case_id):
     data = Case.query.get_or_404(case_id)
     data.remove()
