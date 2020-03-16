@@ -1,5 +1,4 @@
 *.pyc
 project/static/node_modules/
-config.py
 venv/
 \.idea/
