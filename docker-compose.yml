@@ -1,0 +1,49 @@
+version: '3.7'
+
+services:
+  malerpris:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    command: gunicorn --bind 0.0.0.0:5000 app:APP
+    ports:
+      - 8100:5000
+    env_file:
+      - .env
+      - .env.db
+    environment:
+      - PYTHONUNBUFFERED=0
+    depends_on:
+      - malerpris_db
+    networks:
+      - web
+      - internal
+    labels:
+      # api
+      - "traefik.enable=true"
+      # https
+      - "traefik.http.routers.malerpris.rule=Host(`malerpris.dk`)"
+      - "traefik.http.routers.malerpris.tls=true"
+      - "traefik.http.routers.malerpris.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.malerpris.entrypoints=https"
+      - "traefik.docker.network=web"
+  malerpris_db:
+    image: postgres:12.0-alpine
+    container_name: malerpris_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - .env.db
+    labels:
+      - "traefik.enable=false"
+    networks:
+      - malerpris_internal
+
+volumes:
+  postgres_data:
+
+networks:
+  malerpris_internal:
+  web:
+    external:
+      name: web
