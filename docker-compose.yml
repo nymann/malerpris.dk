@@ -31,16 +31,13 @@ services:
     image: postgres:12.0-alpine
     container_name: malerpris_db
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - /mnt/docker/malerpris.dk/data:/var/lib/postgresql/data/
     env_file:
       - .env.db
     labels:
       - "traefik.enable=false"
     networks:
       - malerpris_internal
-
-volumes:
-  postgres_data:
 
 networks:
   malerpris_internal:
