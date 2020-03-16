@@ -5,6 +5,7 @@ flask_sqlalchemy
 psycopg2-binary
 Flask-BabelPlus
 sentry-sdk[flask]
+werkzeug==0.16.1
 Flask-WTF
 wtforms
 bcrypt

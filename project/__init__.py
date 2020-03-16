@@ -1,10 +1,11 @@
 import sentry_sdk
-from flask import Flask, request
+from flask import Flask
 from flask_babelplus import Babel, gettext
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_migrate import Migrate
 from sentry_sdk.integrations.flask import FlaskIntegration
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 from config import Config
 from project.error_handlers import register_handlers
@@ -21,6 +22,7 @@ def create_app():
     app = Flask(__name__)
     app.json_encoder = CustomJSONEncoder
     app.config.from_object(Config)
+    app.wsgi_app = ProxyFix(app.wsgi_app)
     initialize_extensions(app=app)
     register_blueprints(app=app)
     register_handlers(app=app)
