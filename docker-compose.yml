@@ -23,7 +23,7 @@ services:
       # api
       - "traefik.enable=true"
       # https
-      - "traefik.http.routers.malerpris.rule=Host(`malerpris.dk`)"
+      - "traefik.http.routers.malerpris.rule=Host(`malerpris.dk`) || (Host(`www.malerpris.dk`)"
       - "traefik.http.routers.malerpris.tls=true"
       - "traefik.http.routers.malerpris.tls.certresolver=letsencrypt"
       - "traefik.http.routers.malerpris.entrypoints=https"
