@@ -34,12 +34,15 @@
                     69 66
                     04</a> {{ _("if you want a case calculated") }}.
                 </h2>
+                {% if cases %}
                 <div class="arrow bounce" style="padding-top: 40px">
                     <i class="fas fa-arrow-down is-size-1-desktop has-text-primary"></i>
                 </div>
+                {% endif %}
             </div>
         </div>
     </section>
+    {% if cases %}
     <section class="section cases has-text-centered">
         <div class="container">
             <div class="column is-centered">
@@ -86,6 +89,7 @@
             </div>
         </div>
     </section>
+    {%endif%}
 {% endblock %}
 
 {% block scripts %}

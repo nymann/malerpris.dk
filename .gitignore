@@ -2,3 +2,4 @@
 project/static/node_modules/
 venv/
 \.idea/
+.venv/
