@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  malerpris:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: malerpris
+    ports:
+      - 8100:80

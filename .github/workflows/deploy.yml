@@ -1,0 +1,24 @@
+name: Deploy malerpris.dk
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Publish to registry
+        uses: azure/docker-login@v1
+        with:
+          login-server: registry.nymann.dev
+          username: ${{ secrets.REGISTRY_USER }}
+          password: ${{ secrets.REGISTRY_PASS }}
+      - name: Publish to registry
+        run: |
+          docker build --cache-from $ONBUILD -t $ONBUILD -f docker/Dockerfile .
+          docker push registry.nymann.dev/malerpris
+        env:
+          ONBUILD: registry.nymann.dev/malerpris:onbuild
+          IMAGE: registry.nymann.dev/malerpris
