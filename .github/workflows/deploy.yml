@@ -17,7 +17,7 @@ jobs:
           password: ${{ secrets.REGISTRY_PASS }}
       - name: Publish to registry
         run: |
-          docker build --cache-from $ONBUILD -t $ONBUILD -f docker/Dockerfile .
+          docker build --cache-from $ONBUILD -t $ONBUILD -f Dockerfile .
           docker push registry.nymann.dev/malerpris
         env:
           ONBUILD: registry.nymann.dev/malerpris:onbuild
