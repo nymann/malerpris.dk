@@ -18,7 +18,7 @@ jobs:
       - name: Publish to registry
         run: |
           docker build --cache-from $ONBUILD -t $ONBUILD -f Dockerfile .
-          docker push registry.nymann.dev/malerpris
+          docker push --all-tags registry.nymann.dev/malerpris
         env:
           ONBUILD: registry.nymann.dev/malerpris:onbuild
           IMAGE: registry.nymann.dev/malerpris
