@@ -12,13 +12,11 @@ jobs:
       - name: Publish to registry
         uses: azure/docker-login@v1
         with:
-          login-server: registry.nymann.dev
           username: ${{ secrets.REGISTRY_USER }}
           password: ${{ secrets.REGISTRY_PASS }}
       - name: Publish to registry
         run: |
           docker build --cache-from $ONBUILD -t $ONBUILD -f Dockerfile .
-          docker push --all-tags registry.nymann.dev/malerpris
+          docker push --all-tags nymann/malerpris.dk
         env:
-          ONBUILD: registry.nymann.dev/malerpris:onbuild
-          IMAGE: registry.nymann.dev/malerpris
+          ONBUILD: nymann/malerpris.dk:latest
